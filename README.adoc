@@ -1,4 +1,4 @@
-// Copyright (c) 2022, 2023 IBM Corporation and others.
+// Copyright (c) 2022, 2025 IBM Corporation and others.
 // Licensed under Creative Commons Attribution-NoDerivatives
 // 4.0 International (CC BY-ND 4.0)
 //   https://creativecommons.org/licenses/by-nd/4.0/
@@ -11,7 +11,7 @@
 :page-duration: 30 minutes
 :page-releasedate: 2022-04-05
 :page-description: Explore how to deploy a microservice to Red Hat OpenShift 4 using the Open Liberty Operator.
-:page-tags: ['Kubernetes', 'Docker', 'Cloud'] 
+:page-tags: ['kubernetes', 'docker', 'cloud']
 :page-permalink: /guides/{projectid}
 :page-related-guides: ['cloud-openshift', 'cloud-openshift-operator', 'okd']
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/prod
@@ -59,9 +59,9 @@ Look for output similar to the following example:
 
 [role='no_copy']
 ```
-Client Version: 4.3.13
-Server Version: 4.3.13
-Kubernetes Version: v1.16.2
+Client Version: 4.17.9
+Server Version: 4.17.9
+Kubernetes Version: v1.30.6
 ```
 
 Before you install any resources, you need to create a project on your OpenShift cluster. Create a project named `guide` by running the following command:
@@ -144,12 +144,6 @@ The `openlibertyapplications` CRD defines a set of configurations for deploying 
 ifndef::cloud-hosted[]
 You can also confirm the installation of the operator from the web console. Navigate to the OperatorHub. You can filter the list of categories to see only installed operators. 
 
-== Adding a private Docker credential
-
-Docker limits container image pull requests for free DockerHub subscriptions. For more information, see link:https://www.docker.com/increase-rate-limits[Understanding Docker Hub Rate Limiting]. If you have a Docker account with a Pro or Team subscription, you can add a private credential to avoid any errors as a result of the limits.
-
-To add a private credential, navigate to the OpenShift web console and select *Workloads > Secrets* from the sidebar menu. Ensure that the selected project is `openshift-config`. Search for `pull-secret` and click the *three vertical dots* menu. Then select *Edit Secret* > *Add credentials*. Enter `docker.io` to the *Registry Server Address* field, your Docker user ID to the *Username* field, and your Docker password to the *Password* field. Click the *Save* button to save the credential. 
-endif::[]
 
 == Deploying the system microservice to OpenShift
 
